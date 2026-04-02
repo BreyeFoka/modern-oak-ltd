@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Allura&family=Manrope:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-script: "Allura", cursive;
+
+  --color-marble-white: #f5f2ee;
+  --color-marble-vein: #b8afa2;
+  --color-oak-light: #a0774f;
+  --color-oak-dark: #4f3626;
+  --color-charcoal: #111112;
+  --color-gilded-gold: #c9a863;
+}
+
+@layer base {
+  body {
+    @apply bg-charcoal text-marble-white antialiased overflow-x-hidden;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+
+/* ── Typography helpers ── */
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ── Navigation ── */
+
+.nav-link {
+  position: relative;
+  transition: color 220ms ease;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 320ms ease;
+  background: var(--color-gilded-gold);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Section kicker label ── */
+
+.section-kicker {
+  width: max-content;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+.section-title {
+  max-width: 52rem;
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  line-height: 0.96;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ── CTA gold link ── */
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid var(--color-gilded-gold);
+  padding: 0.5rem 0;
+  color: var(--color-gilded-gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  transition: opacity 230ms ease;
+}
+
+.btn-gold:hover {
+  opacity: 0.65;
+}
+
+/* ── Hero grain overlay ── */
+
+.hero-grain {
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 18% 85%, rgb(255 255 255 / 5%), transparent 33%),
+    radial-gradient(circle at 84% 12%, rgb(201 168 99 / 7%), transparent 28%);
+  mix-blend-mode: screen;
+}
+
+/* ── Blend art title ── */
+
+.blend-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.blend-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  color: transparent;
+  background-image: url('https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 6px 18px rgb(0 0 0 / 50%));
+}
+
+/* ── Section image layout ── */
+
+.section-image-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-image-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-overlay-dark {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(to bottom, rgb(17 17 18 / 58%), rgb(17 17 18 / 92%));
+}
+
+.section-overlay-deep {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(to bottom, rgb(9 9 10 / 55%), rgb(9 9 10 / 93%));
+}
+
+/* ── Material cards ── */
+
+.material-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  opacity: 0; /* starts hidden, revealed by GSAP */
+}
+
+.material-card-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 1.25rem;
+  background: linear-gradient(to top, rgb(12 12 13 / 94%), rgb(12 12 13 / 15%), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0.72;
+  transition: opacity 0.45s ease;
+}
+
+.material-card:hover .material-card-overlay {
+  opacity: 1;
+}
+
+.material-card-overlay h3 {
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-marble-white);
+  line-height: 1.1;
+}
+
+.material-card-overlay p {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: rgb(245 242 238 / 72%);
+}
+
+/* ── Portfolio horizontal track ── */
+
+.portfolio-track {
+  will-change: transform;
+}
+
+/* ── Review marquee ── */
+
+.review-track-container {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.review-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: marquee-reviews 45s linear infinite;
+}
+
+.review-track:hover {
+  animation-play-state: paused;
+}
+
+.review-card {
+  width: 24rem;
+  padding: 2rem 1.5rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid rgb(201 168 99 / 22%);
+}
+
+/* ── Loop footer ── */
+
+.loop-footer {
+  background: #0d0d0e;
+  border-top: 1px solid rgb(201 168 99 / 10%);
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.loop-line {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.loop-line span {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.85rem, 1.5vw, 1.4rem);
+  color: var(--color-gilded-gold);
+  letter-spacing: 0.08em;
+}
+
+.loop-line-forward span {
+  animation: marquee-forward 40s linear infinite;
+}
+
+/* ── Keyframe animations ── */
+
+@keyframes marquee-forward {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reviews {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Lenis smooth scroll ── */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
