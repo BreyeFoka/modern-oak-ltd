@@ -107,17 +107,17 @@ const journeySlides = [
     {
         image: 'https://images.unsplash.com/photo-1617103996702-96ff29b1c467?auto=format&fit=crop&w=1800&q=80',
         title: 'Vision Mapping',
-        text: 'We decode lifestyle, architecture, and aspirations into a visual narrative.',
+        text: 'We meet with you, study your space, and decode your lifestyle and aspirations into a rich visual narrative.',
     },
     {
         image: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1800&q=80',
         title: 'Material Storyboarding',
-        text: 'Oak grains, marble slabs, and metallic finishes are curated as one composition.',
+        text: 'Our design team hand-selects every oak grain, marble slab, and metallic finish — composing them as a single unified story.',
     },
     {
         image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1800&q=80',
         title: 'Craft and Installation',
-        text: 'Precision execution, stage-by-stage quality control, and flawless final delivery.',
+        text: 'Our craftsmen execute with precision at every stage. From first install to final reveal, we deliver flawlessly.',
     },
 ];
 
@@ -146,17 +146,17 @@ const portfolioPanels = [
 
 const reviews: Review[] = [
     {
-        quote: 'Modern Oak delivered a residence that feels like a private gallery. Every surface is intentional.',
+        quote: 'Modern Oak Decoration delivered a residence that feels like a private gallery. Every surface is intentional and every corner considered.',
         author: 'Elena Moretti',
         project: 'Milan Penthouse',
     },
     {
-        quote: 'Their team blends craftsmanship and discipline at a world-class level. The finish quality is extraordinary.',
+        quote: 'The team at Modern Oak Decoration blends old-world craftsmanship with contemporary discipline. The quality of finish is simply extraordinary.',
         author: 'James Whitlock',
         project: 'London Villa',
     },
     {
-        quote: 'Elegant, composed, and deeply luxurious. The result exceeded every expectation we had.',
+        quote: 'Elegant, composed, and deeply luxurious. Modern Oak Decoration redefined what our home could feel like. The result exceeded every expectation we had.',
         author: 'Nour Al Farsi',
         project: 'Dubai Residence',
     },
@@ -185,7 +185,7 @@ const LoadingScreen = ({ onDone }: { onDone: () => void }) => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: 'easeInOut' }}
-            className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-charcoal text-marble-white"
+            className="fixed inset-0 z-200 flex flex-col items-center justify-center bg-charcoal text-marble-white"
         >
             <motion.div
                 animate={{ rotate: 360 }}
@@ -193,7 +193,7 @@ const LoadingScreen = ({ onDone }: { onDone: () => void }) => {
                 className="h-28 w-28 rounded-full border border-marble-white/20 border-t-gilded-gold"
             />
             <h2 className="mt-8 text-5xl font-display tracking-wide">Modern Oak</h2>
-            <p className="mt-2 text-xs uppercase tracking-[0.45em] text-marble-vein">Interior Atelier</p>
+            <p className="mt-2 text-xs uppercase tracking-[0.45em] text-marble-vein">Decoration Limited</p>
             <div className="mt-8 h-px w-72 overflow-hidden bg-marble-white/15">
                 <motion.div className="h-full bg-gilded-gold" initial={{ width: 0 }} animate={{ width: `${progress}%` }} transition={{ duration: 0.18 }} />
             </div>
@@ -237,6 +237,7 @@ const Navbar = () => {
                 <a href="#home" className="flex items-center gap-3">
                     <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gilded-gold/50 bg-charcoal text-[10px] font-semibold tracking-[0.15em] text-gilded-gold">MO</span>
                     <span className="font-display text-xl text-marble-white">Modern Oak</span>
+                    <span className="hidden lg:inline text-[10px] uppercase tracking-[0.2em] text-marble-vein/60 font-sans">Decoration Ltd</span>
                 </a>
                 <nav className="hidden items-center gap-7 text-[10px] uppercase tracking-[0.22em] text-marble-white/85 md:flex">
                     <a href="#materials" className="nav-link">Materials</a>
@@ -292,7 +293,7 @@ const HeroCarousel = () => {
     );
 
     return (
-        <section id="home" ref={sectionRef} className="relative isolate flex min-h-[100vh] items-end overflow-hidden pt-28">
+        <section id="home" ref={sectionRef} className="relative isolate flex min-h-screen items-end overflow-hidden pt-28">
             <div className="absolute inset-0 -z-20">
                 {heroSlides.map((slide, i) => (
                     <div
@@ -306,7 +307,7 @@ const HeroCarousel = () => {
                         <img src={overlays[i % overlays.length]} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-screen" referrerPolicy="no-referrer" />
                     </div>
                 ))}
-                <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/45 to-charcoal/90" />
+                <div className="absolute inset-0 bg-linear-to-b from-charcoal/70 via-charcoal/45 to-charcoal/90" />
                 <div className="absolute inset-0 hero-grain" />
             </div>
 
@@ -322,7 +323,7 @@ const HeroCarousel = () => {
             </div>
 
             <div className="hero-copy relative z-10 mx-auto flex w-[min(1240px,94vw)] flex-col gap-7 pb-20 text-marble-white md:pb-28">
-                <p className="max-w-max rounded-full border border-gilded-gold/35 bg-charcoal/35 px-5 py-2 text-[11px] uppercase tracking-[0.3em]">Bespoke Interiors in Oak, Marble and Gold</p>
+                <p className="max-w-max rounded-full border border-gilded-gold/35 bg-charcoal/35 px-5 py-2 text-[11px] uppercase tracking-[0.3em]">Modern Oak Decoration Limited</p>
                 <h1 className="max-w-3xl text-5xl leading-[0.95] sm:text-6xl lg:text-8xl">
                     {heroSlides[index].title}
                     <span className="mt-3 block font-script text-gilded-gold">For Exceptional Living</span>
@@ -377,20 +378,20 @@ const BlendArtSection = () => {
                     className="zoom-on-scroll h-full w-full object-cover opacity-35"
                     referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/75 to-charcoal/85" />
+                <div className="absolute inset-0 bg-linear-to-r from-charcoal via-charcoal/75 to-charcoal/85" />
             </div>
             <div className="mx-auto grid w-[min(1240px,94vw)] gap-12 lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="space-y-7 reveal-left">
                     <p className="section-kicker text-gilded-gold">Art Direction</p>
                     <h2 className="blend-title text-[clamp(3rem,9vw,8rem)] leading-[0.9]">Interior Masterpiece</h2>
                     <p className="max-w-2xl text-lg text-marble-white/78 font-light">
-                        Not conventional design. A moving gallery where typography, material textures, and cinematic transitions merge into a single luxury statement.
+                        Modern Oak Decoration Limited transforms spaces into living art. Every grain of oak, every marble vein, every brushed gold accent is placed with intent and precision.
                     </p>
                 </div>
                 <div className="blend-floating reveal-right bg-charcoal/40 p-8">
                     <p className="font-script text-5xl text-gilded-gold">Breath Taking</p>
                     <p className="mt-4 text-sm uppercase tracking-[0.2em] text-marble-vein">Black • Gray • Brown • Gold</p>
-                    <p className="mt-6 text-marble-white/75 font-light">A bespoke digital atmosphere inspired by wood craftsmanship and stone elegance.</p>
+                    <p className="mt-6 text-marble-white/75 font-light">Modern Oak Decoration Limited brings old-world craftsmanship into the modern luxury residence.</p>
                 </div>
             </div>
         </section>
@@ -493,9 +494,9 @@ const ProjectsSection = () => {
 
     return (
         <section id="projects" className="section-image-shell relative text-marble-white">
-            <div ref={triggerRef} className="relative h-[100vh] overflow-hidden">
+            <div ref={triggerRef} className="relative h-screen overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=2200&q=80" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover parallax-soft" referrerPolicy="no-referrer" />
-                <div className="absolute inset-0 bg-gradient-to-b from-charcoal/55 via-charcoal/30 to-charcoal/80" />
+                <div className="absolute inset-0 bg-linear-to-b from-charcoal/55 via-charcoal/30 to-charcoal/80" />
 
                 {/* Header text */}
                 <div className="absolute top-0 left-0 right-0 z-20 pt-16 px-10 md:px-16 reveal-up">
@@ -504,11 +505,11 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Slide track */}
-                <div ref={trackRef} className="flex h-full" style={{ width: `${projectSlides.length * 100}%` }}>
+                <div ref={trackRef} className="flex h-full w-[600%]">
                     {projectSlides.map((slide, i) => (
-                        <div key={slide.image} className="relative h-full" style={{ width: `${100 / projectSlides.length}%` }}>
+                        <div key={slide.image} className="relative h-full w-[16.6667%]">
                             <img src={slide.image} alt={slide.title} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/92 via-charcoal/30 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-charcoal/92 via-charcoal/30 to-transparent" />
                             <div className={cn('absolute bottom-0 left-0 right-0 p-10 md:p-14 transition-all duration-700', i === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6')}>
                                 <p className="text-[11px] uppercase tracking-[0.28em] text-gilded-gold">{slide.location}</p>
                                 <h3 className="mt-2 text-4xl md:text-5xl font-display-italic text-marble-white">{slide.title}</h3>
@@ -583,14 +584,14 @@ const JourneySection = () => {
             <div className="relative mx-auto w-[min(1240px,94vw)]">
                 <div className="mb-16 reveal-up">
                     <p className="section-kicker text-gilded-gold">Client Journey</p>
-                    <h2 className="section-title mt-4 font-display-italic">An Elegant, Controlled Process</h2>
+                    <h2 className="section-title mt-4 font-display-italic">The Modern Oak Process</h2>
                 </div>
                 <div className="space-y-8">
                     {journeySlides.map((slide, i) => (
-                        <div key={slide.title} className={`journey-panel-${i} relative overflow-hidden`} style={{ aspectRatio: i % 2 === 0 ? '16/7' : '16/6' }}>
+                        <div key={slide.title} className={`journey-panel-${i} relative overflow-hidden ${i % 2 === 0 ? 'aspect-16/7' : 'aspect-16/6'}`}>
                             <img src={slide.image} alt={slide.title} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
                             {/* Gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-charcoal/88 via-charcoal/50 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-r from-charcoal/88 via-charcoal/50 to-transparent" />
                             {/* Floating text over image */}
                             <div className={`journey-text-${i} absolute inset-0 flex flex-col justify-center px-10 md:px-16`}>
                                 <p className="text-[10px] uppercase tracking-[0.32em] text-gilded-gold mb-3">Phase 0{i + 1}</p>
@@ -632,12 +633,12 @@ const PortfolioHorizontal = () => {
     );
 
     return (
-        <section id="portfolio" ref={sectionRef} className="relative h-[100vh] overflow-hidden bg-charcoal text-marble-white">
-            <div ref={trackRef} className="portfolio-track flex h-full" style={{ width: '400vw' }}>
+        <section id="portfolio" ref={sectionRef} className="relative h-screen overflow-hidden bg-charcoal text-marble-white">
+            <div ref={trackRef} className="portfolio-track flex h-full w-[400vw]">
                 {portfolioPanels.map((panel) => (
                     <article key={panel.label} className="relative h-full w-screen shrink-0 overflow-hidden">
                         <img src={panel.image} alt={panel.label} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-charcoal/90 via-charcoal/20 to-transparent" />
                         <div className="absolute bottom-14 left-10 max-w-xl md:left-16">
                             <p className="text-[10px] uppercase tracking-[0.28em] text-gilded-gold">Portfolio Narrative</p>
                             <h3 className="mt-3 text-4xl md:text-6xl font-display-italic text-marble-white leading-[0.92]">{panel.label}</h3>
@@ -680,7 +681,7 @@ const ReviewsSection = () => {
 };
 
 const LoopFooter = () => {
-    const loopText = 'MODERN OAK • BESPOKE INTERIOR ARTISTRY • OAK & MARBLE & GOLD • TIMELESS LUXURY • CRAFTED RESIDENCES • ARCHITECTURAL ELEGANCE • © 2026 MODERN OAK LTD • ';
+    const loopText = 'MODERN OAK DECORATION LIMITED • BESPOKE LUXURY INTERIORS • OAK — MARBLE — GOLD • TIMELESS CRAFTSMANSHIP • ARCHITECTURAL ELEGANCE • © 2026 MODERN OAK DECORATION LIMITED • ';
 
     return (
         <footer className="loop-footer relative overflow-hidden py-8 text-marble-white">
