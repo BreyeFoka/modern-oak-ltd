@@ -1,20 +1,25 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Modern Oak
 
-# Run and deploy your AI Studio app
+**Live:** [modernoak.breyefoka.dev](https://modernoak.breyefoka.dev)
 
-This contains everything you need to run your app locally.
+Website for Modern Oak Decoration Limited, a luxury interior design company: a showcase of their interiors, services and a private consultation request.
 
-View your app in AI Studio: https://ai.studio/apps/f3a90179-0a90-4290-9d39-0de8482ac208
+## Run it
 
-## Run Locally
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static build in dist/
+```
 
-**Prerequisites:**  Node.js
+## Images
 
+`src/services/imageService.ts` can generate interior images with Gemini when `GEMINI_API_KEY` is set, and otherwise falls back to placeholder photos.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+> **Don't set `GEMINI_API_KEY` for a public build.** `vite.config.ts` writes it into the JavaScript bundle, where anyone can read it. The live site is built without it. To generate images in production, call Gemini from a small server instead.
+
+## Checks
+
+GitHub Actions type-checks (`npm run lint`) and builds on every push. There are no unit tests yet.
+
+Built with React, Vite, TypeScript, Tailwind CSS, GSAP and Lenis. Started from a Google AI Studio export.
