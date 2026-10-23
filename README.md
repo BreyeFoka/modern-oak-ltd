@@ -7,9 +7,9 @@ Website for Modern Oak Decoration Limited, a luxury interior design company: a s
 ## Run it
 
 ```bash
-npm install
-npm run dev      # http://localhost:3000
-npm run build    # static build in dist/
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # static build in dist/
 ```
 
 ## Images
@@ -20,6 +20,6 @@ npm run build    # static build in dist/
 
 ## Checks
 
-GitHub Actions type-checks (`npm run lint`) and builds on every push. There are no unit tests yet.
+GitHub Actions type-checks (`pnpm lint`) and builds on every push. There are no unit tests yet.
 
 Built with React, Vite, TypeScript, Tailwind CSS, GSAP and Lenis. Started from a Google AI Studio export.
